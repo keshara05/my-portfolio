@@ -45,13 +45,13 @@ const Projects = () => {
                                     <div className="flex items-center justify-center gap-4 w-full">
                                         <a href={demo || '#'} target="_blank" rel="noopener noreferrer" className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 bg-[var(--color-primary)] text-black font-bold rounded-md hover:shadow-[0_0_15px_var(--color-primary)] text-center">Demo</a>
                                         <a href={code || '#'} target="_blank" rel="noopener noreferrer" className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 border border-[var(--color-primary)] text-white rounded-md hover:bg-[var(--color-primary)] hover:text-black text-center">Code</a>
-                                    </div>                </div>
-                            </div>
-                        </motion.div>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </Tilt>
                     ))}
+                </div>
             </div>
-        </div>
         </div >
     );
 };
