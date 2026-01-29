@@ -11,7 +11,7 @@ const About = () => {
     ];
 
     return (
-        <div name="about" className="w-full min-h-screen relative flex items-center overflow-hidden">
+        <div name="about" className="w-full min-h-screen relative flex items-center overflow-hidden py-24 md:py-0">
             {/* Background blobs for depth */}
             <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
             <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] -z-10"></div>

@@ -7,7 +7,7 @@ import profilePic from '../assets/profile.jpg';
 
 const Hero = () => {
     return (
-        <div name="home" className="min-h-screen w-full relative overflow-hidden flex items-center justify-center pt-24 md:pt-0">
+        <div name="home" className="min-h-screen w-full relative overflow-hidden flex items-center justify-center pt-24 pb-20 md:pt-0 md:pb-0">
 
             {/* Background Elements */}
             <div className="absolute top-20 right-20 w-72 h-72 bg-primary/20 rounded-full blur-[100px] z-0 animate-pulse hidden md:block"></div>
