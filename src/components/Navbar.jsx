@@ -1,65 +1,118 @@
-import React, { useState } from 'react';
-import { Link } from 'react-scroll';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-    const handleClick = () => setNav(!nav);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const links = [
-        { id: 1, link: 'home' },
-        { id: 2, link: 'about' },
-        { id: 3, link: 'skills' },
-        { id: 4, link: 'projects' },
-        { id: 5, link: 'contact' },
+        { id: 1, link: "home" },
+        { id: 2, link: "about" },
+        { id: 3, link: "skills" },
+        { id: 4, link: "projects" },
+        { id: 5, link: "contact" },
     ];
 
+    const menuVariants = {
+        hidden: { x: "100%" },
+        visible: { x: 0, transition: { duration: 0.3, ease: "easeInOut" } },
+        exit: { x: "100%", transition: { duration: 0.3, ease: "easeInOut" } }
+    };
+
     return (
-        <nav className="fixed w-full h-[80px] flex justify-between items-center px-4 text-white z-50 glass">
-            {/* Logo */}
-            <div className="text-3xl font-bold cursor-pointer font-[Outfit]">
-                <Link to="home" smooth={true} duration={500}>
-                    <span className="text-[var(--color-primary)]">KR</span>
-                </Link>
-            </div>
+        <nav
+            className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "glass h-[70px] shadow-lg top-0" : "h-[90px] bg-transparent top-0"
+                }`}
+        >
+            <div className="max-w-[1240px] mx-auto px-4 flex justify-between items-center h-full">
+                {/* Logo */}
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="cursor-pointer"
+                >
+                    <Link to="home" smooth={true} duration={500}>
+                        <h1 className="text-3xl font-bold font-sans tracking-wider">
+                            <span className="text-white">K</span>
+                            <span className="text-primary drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">R</span>
+                        </h1>
+                    </Link>
+                </motion.div>
 
-            {/* Desktop Menu */}
-            <ul className="hidden md:flex">
-                {links.map(({ id, link }) => (
-                    <li key={id} className="px-4 cursor-pointer capitalize font-medium text-gray-300 hover:text-[var(--color-primary)] hover:scale-110 duration-200 relative group">
-                        <Link
-                            to={link}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            activeClass="active-link"
-                            className="transition-colors duration-300"
-                        >
-                            {link}
-                        </Link>
-                        {/* Underline animation */}
-                        <span className="absolute bottom-0 left-0 w-full h-1 bg-[var(--color-primary)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
-                    </li>
-                ))}
-            </ul>
-
-            {/* Mobile Icon */}
-            <div onClick={handleClick} className="md:hidden cursor-pointer z-10 text-[var(--color-primary)] hover:rotate-180 duration-500">
-                {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-            </div>
-
-            {/* Mobile Menu */}
-            {nav && (
-                <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg text-gray-200">
+                {/* Desktop Menu */}
+                <ul className="hidden md:flex gap-8">
                     {links.map(({ id, link }) => (
-                        <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl hover:text-[var(--color-primary)] duration-200">
-                            <Link onClick={() => setNav(false)} to={link} smooth={true} duration={500}>
+                        <motion.li
+                            key={id}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: id * 0.1 }}
+                        >
+                            <Link
+                                to={link}
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                offset={-70}
+                                activeClass="text-primary text-glow font-bold border-b-2 border-primary"
+                                className="cursor-pointer capitalize text-gray-300 hover:text-white hover:text-glow transition-all duration-300 text-lg font-light tracking-wide px-2 py-1"
+                            >
                                 {link}
                             </Link>
-                        </li>
+                        </motion.li>
                     ))}
                 </ul>
-            )}
+
+                {/* Mobile Menu Icon */}
+                <div
+                    onClick={() => setNav(!nav)}
+                    className="md:hidden cursor-pointer z-50 text-white hover:text-primary transition-colors"
+                >
+                    {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+                </div>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {nav && (
+                    <motion.div
+                        variants={menuVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="fixed top-0 left-0 w-full h-screen bg-bg-secondary/95 backdrop-blur-xl flex flex-col justify-center items-center z-40"
+                    >
+                        <ul className="flex flex-col gap-10">
+                            {links.map(({ id, link }) => (
+                                <motion.li
+                                    key={id}
+                                    whileHover={{ scale: 1.1 }}
+                                    className="text-4xl capitalize font-bold cursor-pointer text-gray-300 hover:text-primary hover:text-glow transition-all"
+                                >
+                                    <Link
+                                        onClick={() => setNav(false)}
+                                        to={link}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-70}
+                                    >
+                                        {link}
+                                    </Link>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };
