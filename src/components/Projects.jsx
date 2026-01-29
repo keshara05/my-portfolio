@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import project1 from '../assets/project1.png';
 
 const Projects = () => {
     const projects = [
-        { id: 1, src: 'linear-gradient(to right, #00c6ff, #0072ff)', title: 'Personal Portfolio', code: 'https://github.com/keshara05/my-portfolio', demo: 'https://keshararathnayaka.vercel.app/' },
+        { id: 1, src: project1, isImage: true, title: 'Personal Portfolio', code: 'https://github.com/keshara05/my-portfolio', demo: 'https://keshararathnayaka.vercel.app/' },
         { id: 2, src: 'linear-gradient(to right, #f12711, #f5af19)', title: 'Project Two' },
         { id: 3, src: 'linear-gradient(to right, #654ea3, #eaafc8)', title: 'Project Three' },
         { id: 4, src: 'linear-gradient(to right, #11998e, #38ef7d)', title: 'Project Four' },
@@ -28,7 +29,7 @@ const Projects = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-                    {projects.map(({ id, src, title, code, demo }) => (
+                    {projects.map(({ id, src, title, code, demo, isImage }) => (
                         <Tilt key={id} tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={400}>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
@@ -36,10 +37,14 @@ const Projects = () => {
                                 transition={{ duration: 0.5 }}
                                 className="shadow-md shadow-gray-600 rounded-lg overflow-hidden glass group h-full"
                             >
-                                <div
-                                    className="h-48 w-full duration-200"
-                                    style={{ background: src }}
-                                ></div>
+                                {isImage ? (
+                                    <img src={src} alt={title} className="w-full h-48 object-cover duration-200 group-hover:scale-110" />
+                                ) : (
+                                    <div
+                                        className="h-48 w-full duration-200 group-hover:scale-110"
+                                        style={{ background: src }}
+                                    ></div>
+                                )}
                                 <div className="p-4 flex flex-col items-center justify-center">
                                     <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
                                     <div className="flex items-center justify-center gap-4 w-full">
