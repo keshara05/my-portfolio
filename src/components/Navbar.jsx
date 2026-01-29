@@ -29,10 +29,10 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "glass h-[70px] shadow-lg top-0" : "h-[90px] bg-transparent top-0"
+            className={`fixed w-full left-0 z-50 transition-all duration-300 ${scrolled ? "glass h-[70px] shadow-lg top-0" : "h-[90px] bg-transparent top-0"
                 }`}
         >
-            <div className="max-w-[1240px] mx-auto px-4 flex justify-between items-center h-full">
+            <div className="max-w-screen-xl mx-auto px-4 md:px-8 flex justify-between items-center h-full">
                 {/* Logo */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
