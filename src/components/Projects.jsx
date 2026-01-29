@@ -28,7 +28,7 @@ const Projects = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-                    {projects.map(({ id, src, title }) => (
+                    {projects.map(({ id, src, title, code, demo }) => (
                         <Tilt key={id} tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={400}>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
