@@ -4,7 +4,7 @@ import Tilt from 'react-parallax-tilt';
 
 const Projects = () => {
     const projects = [
-        { id: 1, src: 'linear-gradient(to right, #00c6ff, #0072ff)', title: 'Project One' },
+        { id: 1, src: 'linear-gradient(to right, #00c6ff, #0072ff)', title: 'Personal Portfolio', code: 'https://github.com/keshara05/my-portfolio', demo: 'https://keshararathnayaka.vercel.app/' },
         { id: 2, src: 'linear-gradient(to right, #f12711, #f5af19)', title: 'Project Two' },
         { id: 3, src: 'linear-gradient(to right, #654ea3, #eaafc8)', title: 'Project Three' },
         { id: 4, src: 'linear-gradient(to right, #11998e, #38ef7d)', title: 'Project Four' },
@@ -43,16 +43,16 @@ const Projects = () => {
                                 <div className="p-4 flex flex-col items-center justify-center">
                                     <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
                                     <div className="flex items-center justify-center gap-4 w-full">
-                                        <button className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 bg-[var(--color-primary)] text-black font-bold rounded-md hover:shadow-[0_0_15px_var(--color-primary)]">Demo</button>
-                                        <button className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 border border-[var(--color-primary)] text-white rounded-md hover:bg-[var(--color-primary)] hover:text-black">Code</button>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                        <a href={demo || '#'} target="_blank" rel="noopener noreferrer" className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 bg-[var(--color-primary)] text-black font-bold rounded-md hover:shadow-[0_0_15px_var(--color-primary)] text-center">Demo</a>
+                                        <a href={code || '#'} target="_blank" rel="noopener noreferrer" className="w-1/2 px-3 py-2 m-2 duration-200 hover:scale-105 border border-[var(--color-primary)] text-white rounded-md hover:bg-[var(--color-primary)] hover:text-black text-center">Code</a>
+                                    </div>                </div>
+                            </div>
+                        </motion.div>
                         </Tilt>
                     ))}
-                </div>
             </div>
         </div>
+        </div >
     );
 };
 
