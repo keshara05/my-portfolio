@@ -62,7 +62,7 @@ const Skills = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 text-center px-4"
+                    className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-8 text-center px-2 sm:px-4"
                 >
                     {techs.map(({ id, src, title, color, shadow }) => (
                         <Tilt key={id} tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.1} className="parallax-effect">

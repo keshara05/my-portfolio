@@ -29,7 +29,7 @@ const Contact = () => {
                         transition={{ duration: 0.5 }}
                         action="https://getform.io/f/YOUR_GETFORM_ENDPOINT" // User should update this
                         method="POST"
-                        className="flex flex-col w-full md:w-3/4 lg:w-1/2 glass p-8 rounded-2xl shadow-2xl relative"
+                        className="flex flex-col w-full md:w-3/4 lg:w-1/2 glass p-4 sm:p-8 rounded-2xl shadow-2xl relative"
                     >
                         <div className="absolute inset-0 bg-white/5 rounded-2xl -z-10"></div>
 
