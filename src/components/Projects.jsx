@@ -5,6 +5,7 @@ import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
 import project4 from '../assets/project4.png';
+import project5 from '../assets/project5.png';
 
 const Projects = () => {
     const projects = [
@@ -12,7 +13,7 @@ const Projects = () => {
         { id: 2, src: project2, isImage: true, title: 'Eduflex Institute Management System', code: 'https://github.com/keshara05/Eduflex', demo: 'https://eduflexsms.vercel.app/login' },
         { id: 3, src: project3, isImage: true, title: 'CricHub (Group Project)', code: 'https://github.com/keshara05', demo: '' },
         { id: 4, src: project4, isImage: true, title: 'K-Maths (Educational Platform)', code: 'https://github.com/K-Maths', demo: 'https://kmaths.vercel.app/' },
-        { id: 5, src: 'linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)', title: 'Project Five' },
+        { id: 5, src: project5, isImage: true, title: '2026 OL Countdown', code: 'https://github.com/keshara05/2026-ol-countdown', demo: 'https://kmathsolcountdown.vercel.app/' },
         { id: 6, src: 'linear-gradient(to right, #200122, #6f0000)', title: 'Project Six' },
     ];
 
