@@ -27,7 +27,7 @@ const Contact = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        action="https://getform.io/f/YOUR_GETFORM_ENDPOINT" // User should update this
+                        action="https://formsubmit.co/kesharar99@gmail.com"
                         method="POST"
                         className="flex flex-col w-full md:w-3/4 lg:w-1/2 glass p-4 sm:p-8 rounded-2xl shadow-2xl relative"
                     >
