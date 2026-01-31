@@ -10,7 +10,8 @@ function App() {
   return (
     <>
       <div className="animated-bg"></div>
-      <div>
+      <div className="bg-noise"></div>
+      <div className="relative">
         <Navbar />
         <Hero />
         <About />
