@@ -1,111 +1,147 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
-import { FaGraduationCap, FaBriefcase, FaCode } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaCode, FaLaptopCode, FaRocket, FaLightbulb } from 'react-icons/fa';
 
 const About = () => {
-    const stats = [
-        { id: 1, title: 'Experience', value: '1+ Years', icon: <FaBriefcase /> },
-        { id: 2, title: 'Projects', value: '10+ Completed', icon: <FaCode /> },
-        { id: 3, title: 'University', value: 'OUSL', icon: <FaGraduationCap /> },
-    ];
-
     return (
-        <div name="about" className="w-full min-h-screen relative flex items-center overflow-hidden py-24 md:py-0">
-            {/* Background blobs for depth */}
-            <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
-            <div className="absolute bottom-1/4 right-10 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] -z-10"></div>
+        <div name="about" className="w-full min-h-screen relative flex items-center py-20 bg-grid">
+            <div className="max-w-screen-xl mx-auto px-4 z-10 w-full">
 
-            <div className="max-w-screen-xl p-4 mx-auto grid md:grid-cols-2 gap-12 items-center z-10">
-
-                {/* Left Column: Text */}
+                {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="flex flex-col justify-center h-full space-y-6"
+                    className="mb-12 text-center"
                 >
-                    <div className="pb-2">
-                        <p className="text-4xl font-bold inline border-b-4 border-primary text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                            About Me
-                        </p>
-                    </div>
-
-                    <p className="text-xl text-gray-300 leading-relaxed font-light">
-                        I am <span className="text-primary font-bold text-glow">Keshara Rathnayaka</span>, a passionate Undergraduate at the <span className="text-secondary font-bold">Open University of Sri Lanka</span>.
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        About <span className="text-primary text-glow">Me</span>
+                    </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto">
+                        Get to know a bit more about my journey, experience, and what drives me.
                     </p>
-
-                    <p className="text-lg text-gray-400 leading-relaxed">
-                        I specialize in the <span className="font-bold text-white">MERN Stack</span> and love bringing creative ideas to life on the web. My goal is to build applications that are not just functional, but also provide a visually stunning user experience.
-                    </p>
-
-                    <div className="flex gap-4 mt-4">
-                        <div className="glass px-4 py-2 text-sm text-gray-300 rounded-lg border-l-2 border-primary">
-                            🚀 Fast Learner
-                        </div>
-                        <div className="glass px-4 py-2 text-sm text-gray-300 rounded-lg border-l-2 border-secondary">
-                            💡 Creative Thinker
-                        </div>
-                    </div>
-
-                    <motion.a
-                        href="/cv-dummy.pdf"
-                        download={true}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-fit mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300"
-                    >
-                        Download CV
-                    </motion.a>
                 </motion.div>
 
-                {/* Right Column: Visuals/Stats */}
-                <div className="grid grid-cols-1 gap-6">
+                {/* Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
 
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-4">
-                        {stats.map(({ id, title, value, icon }) => (
-                            <Tilt key={id} tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.02} className="parallax-effect">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: id * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className="glass p-6 rounded-2xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-colors duration-300 group"
-                                >
-                                    <div className="text-4xl text-primary mb-3 group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
-                                        {icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-glow">{value}</h3>
-                                    <p className="text-gray-400 text-sm mt-1">{title}</p>
-                                </motion.div>
-                            </Tilt>
-                        ))}
-                    </div>
+                    {/* Card 1: Main Intro (Spans 2 cols, 2 rows on lg) */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 lg:row-span-2 flex flex-col justify-center space-y-4"
+                    >
+                        <h3 className="text-3xl font-bold text-white">
+                            I'm <span className="text-primary">Keshara Rathnayaka</span>
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed text-lg font-light">
+                            A passionate Undergraduate at the <span className="text-secondary font-semibold">Open University of Sri Lanka</span>.
+                            I specialize in the <span className="text-white font-medium">MERN Stack</span> and thrive on building scalable,
+                            high-performance web applications. My mission is to merge code with creativity to deliver distinct digital experiences.
+                        </p>
+                        <div className="flex flex-wrap gap-3 mt-4">
+                            <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-accent">#FullStack</span>
+                            <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-accent">#UI/UX</span>
+                            <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-accent">#ReactNative</span>
+                        </div>
+                    </motion.div>
 
-                    {/* Featured Education/Highlight Card */}
-                    <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.01}>
+                    {/* Card 2: Experience */}
+                    <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} className="md:col-span-1 lg:col-span-1">
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}
-                            className="glass p-8 rounded-2xl border-l-4 border-l-secondary relative overflow-hidden"
+                            className="glass-panel p-6 rounded-3xl h-full flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors"
                         >
-                            <div className="absolute right-0 top-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-4 -mt-4"></div>
-
-                            <h3 className="text-xl font-bold flex items-center gap-3 text-white">
-                                <FaGraduationCap className="text-secondary text-2xl" />
-                                Education
-                            </h3>
-                            <p className="mt-3 text-gray-200 font-medium">Bachelor's Degree in Software Engineering (Reading)</p>
-                            <p className="text-sm text-gray-500 mt-1">The Open University of Sri Lanka</p>
+                            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 text-primary text-3xl group-hover:scale-110 transition-transform">
+                                <FaBriefcase />
+                            </div>
+                            <h4 className="text-2xl font-bold text-white">1+ Years</h4>
+                            <p className="text-gray-400 text-sm">Experience</p>
                         </motion.div>
                     </Tilt>
 
-                </div>
+                    {/* Card 3: Projects */}
+                    <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} className="md:col-span-1 lg:col-span-1">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="glass-panel p-6 rounded-3xl h-full flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors"
+                        >
+                            <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-4 text-secondary text-3xl group-hover:scale-110 transition-transform">
+                                <FaCode />
+                            </div>
+                            <h4 className="text-2xl font-bold text-white">10+</h4>
+                            <p className="text-gray-400 text-sm">Completed Projects</p>
+                        </motion.div>
+                    </Tilt>
 
+                    {/* Card 4: Education (Spans 2 cols on md) */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 relative overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full -mr-8 -mt-8"></div>
+                        <div className="flex items-start gap-4">
+                            <div className="mt-1 text-secondary text-3xl">
+                                <FaGraduationCap />
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-white">Education</h4>
+                                <h5 className="text-lg text-gray-300 mt-1">BSc in Software Engineering (Reading)</h5>
+                                <p className="text-gray-500 text-sm">The Open University of Sri Lanka</p>
+                                <div className="mt-4 flex gap-3">
+                                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                                        <FaLaptopCode className="text-accent" /> Dean's List
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                                        <FaRocket className="text-accent" /> Top Performer
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Card 5: Soft Skills / Download CV */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="glass-panel p-6 rounded-3xl md:col-span-3 lg:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-6"
+                    >
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center gap-3 text-gray-300">
+                                <FaLightbulb className="text-yellow-400" />
+                                <span>Creative Problem Solver</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-gray-300">
+                                <FaRocket className="text-green-400" />
+                                <span>Fast Learner</span>
+                            </div>
+                        </div>
+
+                        <a
+                            href="/cv-dummy.pdf"
+                            download
+                            className="px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
+                        >
+                            Download CV
+                        </a>
+                    </motion.div>
+
+                </div>
             </div>
         </div>
     );

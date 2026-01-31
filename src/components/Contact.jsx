@@ -1,75 +1,77 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaUser, FaEnvelope, FaCommentAlt } from 'react-icons/fa';
 
 const Contact = () => {
     return (
-        <div name="contact" className="w-full min-h-screen text-white relative py-20 flex items-center overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent -z-10"></div>
-            <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+        <div name="contact" className="w-full relative py-20 bg-grid flex items-center overflow-hidden">
 
-            <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full w-full z-10">
+            <div className="max-w-screen-lg mx-auto p-4 w-full h-full z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: -50 }}
+                    initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="pb-8 text-center"
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="mb-12 text-center"
                 >
-                    <p className="text-4xl font-bold inline border-b-4 border-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                        Contact Me
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        Let's <span className="text-primary text-glow">Connect</span>
+                    </h2>
+                    <p className="text-gray-400 max-w-xl mx-auto">
+                        Got a project in mind or just want to say hi? I'm always open to discussing new ideas and opportunities.
                     </p>
-                    <p className="py-6 text-gray-400 text-xl">Submit the form below to get in touch</p>
                 </motion.div>
 
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center">
                     <motion.form
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true }}
                         action="https://formsubmit.co/kesharar99@gmail.com"
                         method="POST"
-                        className="flex flex-col w-full md:w-3/4 lg:w-1/2 glass p-4 sm:p-8 rounded-2xl shadow-2xl relative"
+                        className="flex flex-col w-full md:w-3/4 lg:w-2/3 glass-panel p-8 rounded-3xl shadow-2xl relative border-t border-white/10"
                     >
-                        <div className="absolute inset-0 bg-white/5 rounded-2xl -z-10"></div>
+                        {/* Decorative Blur */}
+                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-[80px] -z-10 animate-pulse"></div>
 
                         <div className="flex flex-col gap-6">
-                            <div className="group">
-                                <label className="text-sm font-bold text-gray-400 mb-1 block group-focus-within:text-primary transition-colors">Name</label>
+                            <div className="relative group">
+                                <FaUser className="absolute top-4 left-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="Enter your name"
-                                    className="w-full p-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all duration-300 placeholder-gray-600"
+                                    placeholder="Your Name"
+                                    className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300 placeholder-gray-500"
                                     required
                                 />
                             </div>
 
-                            <div className="group">
-                                <label className="text-sm font-bold text-gray-400 mb-1 block group-focus-within:text-primary transition-colors">Email</label>
+                            <div className="relative group">
+                                <FaEnvelope className="absolute top-4 left-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Enter your email"
-                                    className="w-full p-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all duration-300 placeholder-gray-600"
+                                    placeholder="Your Email"
+                                    className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300 placeholder-gray-500"
                                     required
                                 />
                             </div>
 
-                            <div className="group">
-                                <label className="text-sm font-bold text-gray-400 mb-1 block group-focus-within:text-primary transition-colors">Message</label>
+                            <div className="relative group">
+                                <FaCommentAlt className="absolute top-4 left-4 text-gray-400 group-focus-within:text-primary transition-colors" />
                                 <textarea
                                     name="message"
-                                    rows="6"
-                                    placeholder="Enter your message"
-                                    className="w-full p-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all duration-300 placeholder-gray-600"
+                                    rows="5"
+                                    placeholder="Your Message..."
+                                    className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300 placeholder-gray-500 resize-none"
                                     required
                                 ></textarea>
                             </div>
                         </div>
 
-                        <button className="text-white bg-gradient-to-r from-primary to-secondary px-8 py-4 my-8 mx-auto flex items-center gap-3 rounded-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] duration-300 font-bold tracking-wide group">
-                            Let's Talk
+                        <button className="mt-8 mx-auto px-10 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all duration-300 flex items-center gap-3 group">
+                            Send Message
                             <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
                         </button>
                     </motion.form>

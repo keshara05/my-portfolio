@@ -19,68 +19,67 @@ const Projects = () => {
     ];
 
     return (
-        <div name="projects" className="w-full min-h-screen text-white relative py-20 flex items-center">
-
-            {/* Background Gradient */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
-
-            <div className="max-w-screen-xl p-4 mx-auto flex flex-col justify-center w-full h-full">
+        <div name="projects" className="w-full relative py-20 bg-grid">
+            <div className="max-w-screen-xl mx-auto px-4 w-full h-full text-white">
 
                 <motion.div
-                    initial={{ opacity: 0, y: -50 }}
+                    initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="pb-12 text-center"
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="mb-16 text-center"
                 >
-                    <p className="text-5xl font-bold inline border-b-4 border-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                        Featured Projects
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                        Featured <span className="text-primary text-glow">Projects</span>
+                    </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto">
+                        A selection of my recent work, built with modern technologies.
                     </p>
-                    <p className="py-6 text-xl text-gray-400">Check out some of my recent work</p>
                 </motion.div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4 sm:px-0">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map(({ id, src, title, desc, code, demo, isImage }) => (
-                        <Tilt key={id} tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.02} transitionSpeed={400} className="parallax-effect">
+                        <Tilt key={id} tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={400} className="h-full">
                             <motion.div
-                                initial={{ opacity: 0, y: 50 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: id * 0.1 }}
                                 viewport={{ once: true }}
-                                className="glass rounded-2xl overflow-hidden group h-full flex flex-col relative border border-white/5 hover:border-primary/30 transition-colors duration-500"
+                                className="glass-panel rounded-2xl overflow-hidden h-full flex flex-col group relative"
                             >
-                                {/* Image Container */}
-                                <div className="relative overflow-hidden w-full h-56">
+                                {/* Image Area */}
+                                <div className="relative h-48 overflow-hidden">
                                     {isImage ? (
-                                        <img src={src} alt={title} className="w-full h-full object-cover duration-500 group-hover:scale-110 group-hover:rotate-1" />
+                                        <img src={src} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                     ) : (
-                                        <div
-                                            className="w-full h-full duration-500 group-hover:scale-110"
-                                            style={{ background: src }}
-                                        ></div>
+                                        <div className="w-full h-full" style={{ background: src }}></div>
                                     )}
-                                    {/* Overlay Gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
 
-                                {/* Content */}
-                                <div className="p-6 flex flex-col flex-1 relative z-10">
-                                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-primary transition-colors">{title}</h3>
-                                    <p className="text-gray-400 mb-6 text-sm line-clamp-2">{desc}</p>
+                                {/* Content Area */}
+                                <div className="p-6 flex flex-col flex-1 relative">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 blur-2xl rounded-full -mr-10 -mt-10 pointer-events-none"></div>
 
-                                    <div className="mt-auto flex justify-between gap-4">
+                                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{title}</h3>
+                                    <p className="text-gray-400 text-sm mb-6 line-clamp-3">{desc}</p>
+
+                                    <div className="mt-auto flex gap-4">
                                         <a
                                             href={demo || '#'}
                                             target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-bold text-sm transition-all duration-300 ${demo ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-primary/50 hover:scale-105' : 'bg-gray-800 text-gray-500 cursor-not-allowed'}`}
+                                            rel="noreferrer"
+                                            className={`flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${demo ? 'bg-white/10 hover:bg-white/20 text-white hover:text-primary' : 'bg-white/5 text-gray-500 cursor-not-allowed'
+                                                }`}
                                         >
-                                            <FaExternalLinkAlt /> Live Demo
+                                            <FaExternalLinkAlt /> Demo
                                         </a>
                                         <a
-                                            href={code || '#'}
+                                            href={code}
                                             target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-bold text-sm bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-105"
+                                            rel="noreferrer"
+                                            className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
                                         >
                                             <FaGithub size={18} /> Code
                                         </a>
