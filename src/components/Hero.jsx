@@ -31,9 +31,9 @@ const Hero = () => {
                         />
                     </div>
                     {/* Status Badge */}
-                    <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 glass-panel px-3 py-1 rounded-full flex items-center gap-2">
+                    <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 glass-panel px-4 py-2 rounded-full flex items-center gap-2 z-20">
                         <span className="w-2 h-2 bg-success rounded-full animate-pulse"></span>
-                        <span className="text-xs font-mono text-white">Online</span>
+                        <span className="text-xs font-mono text-white font-bold">Online 24/7</span>
                     </div>
                 </motion.div>
 
