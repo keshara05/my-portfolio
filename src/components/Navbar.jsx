@@ -13,6 +13,15 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (nav) {
+            document.body.style.overflowY = "hidden";
+        } else {
+            document.body.style.overflowY = "";
+        }
+    }, [nav]);
+
     const links = [
         { id: 1, link: "home" },
         { id: 2, link: "about" },
