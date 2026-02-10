@@ -15,7 +15,7 @@ const Projects = () => {
         { id: 3, src: project3, isImage: true, title: 'CricHub', desc: 'Cricket Tournament Management System', code: 'https://github.com/keshara05', demo: '' },
         { id: 4, src: project4, isImage: true, title: 'K-Maths', desc: 'Educational Platform for Mathematics', code: 'https://github.com/K-Maths', demo: 'https://kmaths.vercel.app/' },
         { id: 5, src: project5, isImage: true, title: 'OL Countdown', desc: 'Exam Timer with motivational quotes', code: 'https://github.com/keshara05/2026-ol-countdown', demo: 'https://kmathsolcountdown.vercel.app/' },
-        { id: 6, src: 'linear-gradient(to right, #8b5cf6, #3b82f6)', isImage: false, title: 'Coming Soon', desc: 'More exciting projects in the pipeline', code: 'https://github.com/keshara05', demo: '' },
+        { id: 6, src: 'linear-gradient(to right, #6366f1, #a855f7)', isImage: false, title: 'Innoviware', desc: 'Modern software solutions for the digital age', code: 'https://github.com/keshara05/Innoviware', demo: 'https://innoviware-mocha.vercel.app/' },
     ];
 
     return (
